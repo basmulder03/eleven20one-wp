@@ -64,13 +64,13 @@ class Eleven20one_Site_Schema {
 		}
 
 		$items = array();
-		foreach ( Eleven20one_FAQ::ITEMS as $item ) {
+		foreach ( Eleven20one_FAQ::get_items() as $item ) {
 			$items[] = array(
 				'@type'          => 'Question',
-				'name'           => $item['q'],
+				'name'           => $item['question'],
 				'acceptedAnswer' => array(
 					'@type' => 'Answer',
-					'text'  => $item['a'],
+					'text'  => $item['answer'],
 				),
 			);
 		}

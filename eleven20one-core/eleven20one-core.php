@@ -2,10 +2,10 @@
 /**
  * Plugin Name:       Eleven20one Core
  * Description:       Custom post types, dual show/ticket countdown, and an auto-syncing calendar feed for the Eleven20one website.
- * Version:           1.1.0
+ * Version:           1.2.0
  * Requires at least: 6.5
  * Requires PHP:      8.0
- * Author:            Eleven20one
+ * Author:            Bas & Claude
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       eleven20one-core
@@ -15,12 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'E120_CORE_VERSION', '1.1.0' );
+define( 'E120_CORE_VERSION', '1.2.0' );
 define( 'E120_CORE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'E120_CORE_URL', plugin_dir_url( __FILE__ ) );
 
 require_once E120_CORE_PATH . 'includes/class-post-types.php';
 require_once E120_CORE_PATH . 'includes/class-acf-fields.php';
+require_once E120_CORE_PATH . 'includes/class-site-settings.php';
 require_once E120_CORE_PATH . 'includes/class-countdown.php';
 require_once E120_CORE_PATH . 'includes/class-ics-feed.php';
 require_once E120_CORE_PATH . 'includes/class-cpt-meta.php';
@@ -32,6 +33,7 @@ require_once E120_CORE_PATH . 'includes/class-site-schema.php';
 function e120_core_init() {
 	Eleven20one_Post_Types::init();
 	Eleven20one_ACF_Fields::init();
+	Eleven20one_Site_Settings::init();
 	Eleven20one_Countdown::init();
 	Eleven20one_ICS_Feed::init();
 	Eleven20one_CPT_Meta::init();

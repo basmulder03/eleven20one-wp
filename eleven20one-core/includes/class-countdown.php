@@ -148,6 +148,11 @@ class Eleven20one_Countdown {
 		$sale_ts     = $sale_datetime ? strtotime( $sale_datetime ) : 0;
 		$sale_is_live = ! $sale_ts || $sale_ts <= $now;
 
+		$label_show_countdown  = self::option_text( 'label_show_countdown', __( 'Show begint over', 'eleven20one-core' ) );
+		$label_sale_countdown  = self::option_text( 'label_sale_countdown', __( 'Tickets in verkoop over', 'eleven20one-core' ) );
+		$cta_tickets_live      = self::option_text( 'cta_tickets_live', __( 'Koop tickets', 'eleven20one-core' ) );
+		$cta_tickets_not_live  = self::option_text( 'cta_tickets_not_live', __( 'Tickets nog niet in de verkoop', 'eleven20one-core' ) );
+
 		wp_enqueue_style( 'e120-countdown' );
 		wp_enqueue_script( 'e120-countdown' );
 
@@ -164,13 +169,13 @@ class Eleven20one_Countdown {
 			<div class="e120-countdown__timers">
 				<?php if ( ! $sale_is_live ) : ?>
 					<div class="e120-countdown__timer" data-target="sale">
-						<span class="e120-countdown__label"><?php esc_html_e( 'Tickets in verkoop over', 'eleven20one-core' ); ?></span>
+						<span class="e120-countdown__label"><?php echo esc_html( $label_sale_countdown ); ?></span>
 						<span class="e120-countdown__clock">&mdash;</span>
 					</div>
 				<?php endif; ?>
 
 				<div class="e120-countdown__timer" data-target="show">
-					<span class="e120-countdown__label"><?php esc_html_e( 'Show begint over', 'eleven20one-core' ); ?></span>
+					<span class="e120-countdown__label"><?php echo esc_html( $label_show_countdown ); ?></span>
 					<span class="e120-countdown__clock">&mdash;</span>
 				</div>
 			</div>
@@ -181,12 +186,23 @@ class Eleven20one_Countdown {
 					href="<?php echo $sale_is_live ? esc_url( $ticket_url ) : '#'; ?>"
 					<?php echo $sale_is_live ? '' : 'aria-disabled="true" onclick="return false;"'; ?>
 				>
-					<?php echo $sale_is_live ? esc_html__( 'Koop tickets', 'eleven20one-core' ) : esc_html__( 'Tickets nog niet in de verkoop', 'eleven20one-core' ); ?>
+					<?php echo esc_html( $sale_is_live ? $cta_tickets_live : $cta_tickets_not_live ); ?>
 				</a>
 			<?php endif; ?>
 		</div>
 		<?php
 		return ob_get_clean();
+	}
+
+	/**
+	 * Reads a text option from the Site-instellingen admin page (see
+	 * class-site-settings.php), falling back to $default before it's ever
+	 * been saved.
+	 */
+	private static function option_text( $field, $default ) {
+		$value = get_option( 'e120_' . $field );
+
+		return $value ? $value : $default;
 	}
 }
 

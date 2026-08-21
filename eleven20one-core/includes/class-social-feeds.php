@@ -76,12 +76,14 @@ class Eleven20one_Social_Feeds {
 	private static function render_placeholder( $config ) {
 		wp_enqueue_style( 'e120-countdown' );
 
-		$html  = '<div class="e120-social-feed e120-social-feed--empty">';
-		$html .= '<p>' . sprintf(
+		$placeholder_format = get_option( 'e120_social_placeholder_text' );
+		if ( ! $placeholder_format ) {
 			/* translators: %s: platform name, e.g. Instagram */
-			esc_html__( '%s-feed volgt binnenkort.', 'eleven20one-core' ),
-			esc_html( $config['label'] )
-		) . '</p>';
+			$placeholder_format = __( '%s-feed volgt binnenkort.', 'eleven20one-core' );
+		}
+
+		$html  = '<div class="e120-social-feed e120-social-feed--empty">';
+		$html .= '<p>' . esc_html( sprintf( $placeholder_format, $config['label'] ) ) . '</p>';
 
 		if ( current_user_can( 'manage_options' ) ) {
 			$html .= '<p class="e120-social-feed__admin-hint"><a href="' . esc_url( admin_url( $config['settings'] ) ) . '">'
