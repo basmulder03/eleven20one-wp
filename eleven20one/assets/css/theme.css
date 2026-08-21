@@ -1,0 +1,366 @@
+/* Base polish */
+
+html {
+	scroll-behavior: smooth;
+}
+
+::selection {
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--white);
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* Visible, on-brand focus states (keyboard navigation) */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.wp-block-button__link:focus-visible {
+	outline: 3px solid var(--wp--preset--color--lilac);
+	outline-offset: 2px;
+}
+
+a {
+	transition: color 0.15s ease;
+}
+
+/*
+ * Scroll-reveal: elements get this class (and observed) by reveal.js, which
+ * bails out entirely under prefers-reduced-motion — but that JS still adds
+ * the class/markup either way, so the animation itself must also be gated
+ * here. Wrapping the whole block in the media query means reduced-motion
+ * visitors never see the opacity:0 starting state at all, not just a faster
+ * transition to it.
+ */
+@media (prefers-reduced-motion: no-preference) {
+	.e120-reveal {
+		opacity: 0;
+		transform: translateY(28px);
+		transition: opacity 0.7s cubic-bezier(0.16, 0.84, 0.44, 1), transform 0.7s cubic-bezier(0.16, 0.84, 0.44, 1);
+	}
+
+	.e120-reveal.is-revealed {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Staggered cascade for cards in the same grid row */
+	.wp-block-post-template > li:nth-child(3n + 1) {
+		transition-delay: 0s;
+	}
+
+	.wp-block-post-template > li:nth-child(3n + 2) {
+		transition-delay: 0.1s;
+	}
+
+	.wp-block-post-template > li:nth-child(3n + 3) {
+		transition-delay: 0.2s;
+	}
+
+	/* Hero: plays immediately on load rather than waiting on scroll */
+	@keyframes e120-fade-up {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.wp-block-cover h1,
+	.wp-block-cover > .wp-block-cover__inner-container > p,
+	.wp-block-cover .wp-block-buttons {
+		animation: e120-fade-up 0.8s cubic-bezier(0.16, 0.84, 0.44, 1) both;
+	}
+
+	.wp-block-cover > .wp-block-cover__inner-container > p {
+		animation-delay: 0.12s;
+	}
+
+	.wp-block-cover .wp-block-buttons {
+		animation-delay: 0.24s;
+	}
+}
+
+/* Nav links: sliding underline on hover instead of an instant color snap */
+
+.wp-block-navigation-item__content {
+	position: relative;
+}
+
+.wp-block-navigation-item__content::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -2px;
+	height: 2px;
+	background: currentColor;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.25s ease;
+}
+
+.wp-block-navigation-item__content:hover::after {
+	transform: scaleX(1);
+}
+
+/* Sticky, translucent header */
+
+/*
+ * No backdrop-filter here: it (like `filter`/`transform`) creates a new
+ * containing block for `position: fixed` descendants — and WordPress's
+ * mobile navigation overlay is `position: fixed`, nested inside this header.
+ * With a filter here, that overlay gets trapped inside the header's own box
+ * instead of covering the viewport. A solid-ish translucent background gets
+ * a similar effect without breaking the overlay.
+ */
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: rgba(10, 4, 22, 0.97);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-header .wp-block-navigation-item a {
+	transition: color 0.15s ease;
+}
+
+/* Buttons: consistent motion */
+
+.wp-block-button__link {
+	transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+	box-shadow: 0 8px 24px -10px rgba(102, 0, 255, 0.55);
+}
+
+.wp-block-button__link:hover {
+	transform: translateY(-2px);
+}
+
+/*
+ * Hover feedback never changes text color — only background/border/shadow.
+ * Buttons with their own background override (has-*-background-color, which
+ * WordPress marks !important) simply keep that background on hover; this
+ * only kicks in for buttons using the theme's default accent background.
+ */
+.wp-block-button:not(.is-style-outline):not([class*="has-"][class*="-background-color"]) .wp-block-button__link:hover {
+	background-color: #4d00c2;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+	box-shadow: none;
+	border-width: 2px;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+	background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Query-loop cards (team / portfolio grids) get a real card treatment */
+
+/*
+ * Grid/flex items get an implicit `min-height: auto` (and `min-width: auto`)
+ * that lets their CONTENT's intrinsic size override an explicit height —
+ * this is what was pushing the title down/out: the image's aspect-ratio
+ * sizing was winning against the grid row's actual available height instead
+ * of being constrained by it. Setting min-height/min-width: 0 on the grid
+ * item removes that trap. grid-auto-rows: 1fr then makes rows genuinely
+ * equal-height (percentage heights need a *definite* parent height, which
+ * `auto` rows don't provide), and the card itself uses flex-column so the
+ * image and title predictably share that fixed height instead of competing
+ * for space via block-flow stacking.
+ */
+.wp-block-post-template.is-layout-grid {
+	grid-auto-rows: 1fr;
+}
+
+.wp-block-post-template.is-layout-grid > li {
+	min-width: 0;
+	min-height: 0;
+}
+
+.wp-block-query .wp-block-post-template > li > .wp-block-group {
+	display: flex;
+	flex-direction: column;
+	background: var(--wp--preset--color--anthracite);
+	border-radius: 1rem;
+	padding: 1.25rem;
+	height: 100%;
+	min-height: 0;
+	box-sizing: border-box;
+	overflow: hidden;
+	box-shadow: 0 12px 32px -16px rgba(0, 0, 0, 0.6);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wp-block-query .wp-block-post-template > li > .wp-block-group figure {
+	flex-shrink: 0;
+	min-height: 0;
+}
+
+.wp-block-query .wp-block-post-template > li > .wp-block-group .wp-block-post-title {
+	flex-shrink: 0;
+	margin-top: 0.75rem;
+	margin-bottom: 0;
+}
+
+.wp-block-query .wp-block-post-template > li > .wp-block-group .wp-block-post-title,
+.wp-block-query .wp-block-post-template > li > .wp-block-group .wp-block-post-title a {
+	overflow-wrap: break-word;
+	word-break: break-word;
+	width: 100%;
+}
+
+.wp-block-query .wp-block-post-template > li > .wp-block-group:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 20px 40px -16px rgba(102, 0, 255, 0.45);
+}
+
+.wp-block-query .wp-block-post-template img {
+	border-radius: 0.65rem;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	transition: transform 0.4s ease;
+}
+
+.wp-block-query .wp-block-post-template > li > .wp-block-group:hover img {
+	transform: scale(1.04);
+}
+
+.wp-block-post-title a {
+	text-decoration: none;
+}
+
+.wp-block-post-title a:hover {
+	color: var(--wp--preset--color--lilac);
+}
+
+/* Contact Form 7 — styled to match the dark theme, light inputs for guaranteed contrast */
+
+.wpcf7-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	max-width: 560px;
+	margin: 0 auto;
+}
+
+.wpcf7-form p {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	font-weight: 600;
+}
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form input[type="date"],
+.wpcf7-form textarea {
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.85rem 1rem;
+	border-radius: 0.6rem;
+	border: 1px solid transparent;
+	background: var(--wp--preset--color--white);
+	color: var(--wp--preset--color--ink);
+}
+
+.wpcf7-form textarea {
+	min-height: 8rem;
+	resize: vertical;
+}
+
+.wpcf7-form input:focus,
+.wpcf7-form textarea:focus {
+	outline: none;
+	border-color: var(--wp--preset--color--accent);
+	box-shadow: 0 0 0 3px rgba(102, 0, 255, 0.35);
+}
+
+.wpcf7-form .wpcf7-submit {
+	align-self: center;
+	background: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--white);
+	border: none;
+	border-radius: 999px;
+	padding: 0.85rem 2.5rem;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1;
+	cursor: pointer;
+	box-shadow: 0 8px 24px -10px rgba(102, 0, 255, 0.6);
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.wpcf7-form .wpcf7-submit:hover {
+	transform: translateY(-2px);
+}
+
+.wpcf7-form .wpcf7-spinner {
+	margin: 0 auto;
+}
+
+.wpcf7-not-valid-tip {
+	color: var(--wp--preset--color--sand);
+	font-weight: 600;
+	font-size: 0.85rem;
+}
+
+.wpcf7-response-output {
+	max-width: 560px;
+	margin: 1rem auto 0 !important;
+	border-radius: 0.6rem !important;
+	text-align: center;
+}
+
+/* Booking FAQ */
+
+.e120-faq {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.e120-faq__item {
+	padding: 1.25rem 1.5rem;
+	border-radius: 0.75rem;
+	background: var(--wp--preset--color--anthracite);
+}
+
+.e120-faq__question {
+	margin: 0 0 0.5rem;
+	font-size: 1.05rem;
+}
+
+.e120-faq__answer {
+	margin: 0;
+	color: #ffffffcc;
+}
+
+/* Mobile spacing tweaks */
+
+@media (max-width: 600px) {
+	.e120-countdown__timers {
+		gap: 1rem;
+	}
+
+	.wp-block-query .wp-block-post-template > li > .wp-block-group {
+		padding: 1rem;
+	}
+}

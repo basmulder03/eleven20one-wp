@@ -1,0 +1,235 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","align":"full","layout":{"type":"constrained"}} -->
+<main class="wp-block-group alignfull">
+
+	<!-- HERO -->
+	<!-- wp:cover {"url":"https://eleven20one.ddev.site/wp-content/uploads/2026/07/Fotografie-Ron-Koffeman-296-scaled.jpg","id":25,"dimRatio":70,"overlayColor":"ink","minHeight":560,"align":"full","style":{"spacing":{"padding":{"top":"70","bottom":"70","left":"40","right":"40"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-cover alignfull" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--40);min-height:560px">
+		<span aria-hidden="true" class="wp-block-cover__background has-ink-background-color has-background-dim-70 has-background-dim"></span>
+		<img class="wp-block-cover__image-background wp-image-25" alt="" src="https://eleven20one.ddev.site/wp-content/uploads/2026/07/Fotografie-Ron-Koffeman-296-scaled.jpg" data-object-fit="cover"/>
+		<div class="wp-block-cover__inner-container">
+			<!-- wp:heading {"textAlign":"center","level":1,"fontSize":"giant"} -->
+			<h1 class="wp-block-heading has-text-align-center has-giant-font-size">Eleven20one</h1>
+			<!-- /wp:heading -->
+
+			<!-- wp:paragraph {"align":"center","fontSize":"large","style":{"color":{"text":"#ffffffcc"}}} -->
+			<p class="has-text-align-center has-large-font-size" style="color:#ffffffcc">De beste coverband van Nederland (Radio Veronica) — negen muzikanten, een blazerssectie en één missie: van elk optreden een feest maken.</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+			<div class="wp-block-buttons">
+				<!-- wp:button -->
+				<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/optredens/">Bekijk optredens</a></div>
+				<!-- /wp:button -->
+				<!-- wp:button {"className":"is-style-outline"} -->
+				<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/contact/">Boek ons</a></div>
+				<!-- /wp:button -->
+			</div>
+			<!-- /wp:buttons -->
+		</div>
+	</div>
+	<!-- /wp:cover -->
+
+	<!-- COUNTDOWN -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"60","bottom":"60","left":"40","right":"40"}}},"backgroundColor":"ink","layout":{"type":"constrained","contentSize":"760px"}} -->
+	<div class="wp-block-group alignfull has-ink-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)">
+		<!-- wp:heading {"textAlign":"center","level":2} -->
+		<h2 class="wp-block-heading has-text-align-center">Volgend optreden</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:spacer {"height":"var:preset|spacing|30"} -->
+		<div style="height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>
+		<!-- /wp:spacer -->
+
+		<!-- wp:shortcode -->
+		[eleven20one_countdown]
+		<!-- /wp:shortcode -->
+
+		<!-- wp:paragraph {"align":"center","fontSize":"small"} -->
+		<p class="has-text-align-center has-small-font-size"><a href="/optredens/">Bekijk alle optredens →</a></p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- WIE ZIJN WIJ TEASER -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"60","bottom":"60","left":"40","right":"40"}}},"backgroundColor":"anthracite","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-anthracite-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)">
+		<!-- wp:heading {"textAlign":"center","level":2} -->
+		<h2 class="wp-block-heading has-text-align-center">Wie zijn wij</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:spacer {"height":"var:preset|spacing|30"} -->
+		<div style="height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>
+		<!-- /wp:spacer -->
+
+		<!-- wp:query {"query":{"perPage":3,"postType":"e120_bandlid","orderBy":"rand"}} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+				<!-- wp:group {"style":{"spacing":{"blockGap":"10"}},"layout":{"type":"default"}} -->
+				<div class="wp-block-group">
+					<!-- wp:post-featured-image {"isLink":true,"style":{"border":{"radius":"0.75rem"}}} /-->
+					<!-- wp:post-title {"level":3,"isLink":true,"textAlign":"center"} /-->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/wie-zijn-wij/">Ontmoet het hele team</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- REPERTOIRE VIDEO -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"60","bottom":"60","left":"40","right":"40"}}},"backgroundColor":"ink","layout":{"type":"constrained","contentSize":"900px"}} -->
+	<div class="wp-block-group alignfull has-ink-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)">
+		<!-- wp:heading {"textAlign":"center","level":2} -->
+		<h2 class="wp-block-heading has-text-align-center">Greep uit ons repertoire</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"align":"center","style":{"color":{"text":"#ffffffb3"}}} -->
+		<p class="has-text-align-center" style="color:#ffffffb3">Van nieuwe hits en oude dance classics tot rock, soul en Nederlandstalige nummers — met nummers die variëren van Mothers Finest tot Anouk, van Labelle tot Santana en van De Dijk tot Toto maken we van elk feest een ware belevenis. [Vervang dit blok via de site-editor door een YouTube-embed van een repetitie, uitvoering of aftermovie.]</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/repertoire/">Bekijk ons volledige repertoire</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- SOCIAL / VOLG ONS -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"60","bottom":"60","left":"40","right":"40"}}},"backgroundColor":"anthracite","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-anthracite-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)">
+		<!-- wp:heading {"textAlign":"center","level":2} -->
+		<h2 class="wp-block-heading has-text-align-center">Volg ons</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:columns -->
+		<div class="wp-block-columns">
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:heading {"level":3,"textAlign":"center","fontSize":"medium"} -->
+				<h3 class="wp-block-heading has-text-align-center has-medium-font-size">Instagram</h3>
+				<!-- /wp:heading -->
+				<!-- wp:shortcode -->
+				[eleven20one_social type="instagram"]
+				<!-- /wp:shortcode -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:heading {"level":3,"textAlign":"center","fontSize":"medium"} -->
+				<h3 class="wp-block-heading has-text-align-center has-medium-font-size">Facebook video's</h3>
+				<!-- /wp:heading -->
+				<!-- wp:shortcode -->
+				[eleven20one_social type="facebook"]
+				<!-- /wp:shortcode -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column -->
+			<div class="wp-block-column">
+				<!-- wp:heading {"level":3,"textAlign":"center","fontSize":"medium"} -->
+				<h3 class="wp-block-heading has-text-align-center has-medium-font-size">YouTube</h3>
+				<!-- /wp:heading -->
+				<!-- wp:shortcode -->
+				[eleven20one_social type="youtube"]
+				<!-- /wp:shortcode -->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- PORTFOLIO TEASER -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"60","bottom":"60","left":"40","right":"40"}}},"backgroundColor":"ink","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignfull has-ink-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)">
+		<!-- wp:heading {"textAlign":"center","level":2} -->
+		<h2 class="wp-block-heading has-text-align-center">Portfolio &amp; referenties</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:spacer {"height":"var:preset|spacing|30"} -->
+		<div style="height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>
+		<!-- /wp:spacer -->
+
+		<!-- wp:query {"query":{"perPage":3,"postType":"e120_portfolio","orderBy":"menu_order","order":"asc"}} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+				<!-- wp:group {"style":{"spacing":{"blockGap":"10"}},"layout":{"type":"default"}} -->
+				<div class="wp-block-group">
+					<!-- wp:post-featured-image {"isLink":true,"style":{"border":{"radius":"0.75rem"}}} /-->
+					<!-- wp:post-title {"level":3,"isLink":true,"textAlign":"center"} /-->
+				</div>
+				<!-- /wp:group -->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:query -->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline"} -->
+			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/portfolio/">Bekijk volledige portfolio</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- FOTOALBUM TEASER -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"60","bottom":"60","left":"40","right":"40"}}},"backgroundColor":"anthracite","layout":{"type":"constrained","contentSize":"600px"}} -->
+	<div class="wp-block-group alignfull has-anthracite-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)">
+		<!-- wp:heading {"textAlign":"center","level":2} -->
+		<h2 class="wp-block-heading has-text-align-center">Fotoalbum</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"align":"center","style":{"color":{"text":"#ffffffb3"}}} -->
+		<p class="has-text-align-center" style="color:#ffffffb3">Sfeerbeelden van eerdere optredens.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+		<div class="wp-block-buttons">
+			<!-- wp:button -->
+			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/fotoalbum/">Bekijk fotoalbum</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- CONTACT TEASER -->
+	<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"70","bottom":"70","left":"40","right":"40"}}},"gradient":"anthracite-to-accent","layout":{"type":"constrained","contentSize":"600px"}} -->
+	<div class="wp-block-group alignfull has-background" style="padding-top:var(--wp--preset--spacing--70);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--40)">
+		<!-- wp:heading {"textAlign":"center","level":2} -->
+		<h2 class="wp-block-heading has-text-align-center">Optreden boeken?</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"align":"center"} -->
+		<p class="has-text-align-center">Neem contact op en we denken graag mee over jullie evenement.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"backgroundColor":"ink"} -->
+			<div class="wp-block-button"><a class="wp-block-button__link has-ink-background-color has-background wp-element-button" href="/contact/">Naar het contactformulier</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

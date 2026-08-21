@@ -1,0 +1,143 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+		"layout": {
+			"contentSize": "1100px",
+			"wideSize": "1400px"
+		},
+		"color": {
+			"custom": false,
+			"customGradient": false,
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"palette": [
+				{ "slug": "ink", "name": "Donker", "color": "#0A0416" },
+				{ "slug": "anthracite", "name": "Antraciet", "color": "#43335D" },
+				{ "slug": "accent", "name": "Paars", "color": "#6600FF" },
+				{ "slug": "lilac", "name": "Lila (Paars, toegankelijk)", "color": "#C7A6FF" },
+				{ "slug": "stone", "name": "Mist", "color": "#70868E" },
+				{ "slug": "sand", "name": "Zand", "color": "#AE9D84" },
+				{ "slug": "white", "name": "Wit", "color": "#FBFAF9" }
+			],
+			"gradients": [
+				{
+					"slug": "ink-to-anthracite",
+					"name": "Donker naar antraciet",
+					"gradient": "linear-gradient(160deg, #0A0416 0%, #43335D 100%)"
+				},
+				{
+					"slug": "anthracite-to-accent",
+					"name": "Antraciet naar paars",
+					"gradient": "linear-gradient(135deg, #43335D 0%, #6600FF 100%)"
+				}
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"slug": "inter",
+					"name": "Inter",
+					"fontFamily": "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "100 900",
+							"fontStyle": "normal",
+							"fontStretch": "normal",
+							"src": [ "file:./assets/fonts/inter-latin-wght-normal.woff2" ]
+						},
+						{
+							"fontFamily": "Inter",
+							"fontWeight": "100 900",
+							"fontStyle": "italic",
+							"fontStretch": "normal",
+							"src": [ "file:./assets/fonts/inter-latin-wght-italic.woff2" ]
+						}
+					]
+				}
+			],
+			"fontSizes": [
+				{ "slug": "small", "name": "Klein", "size": "0.9rem" },
+				{ "slug": "medium", "name": "Normaal", "size": "1.125rem" },
+				{ "slug": "large", "name": "Groot", "size": "1.5rem" },
+				{ "slug": "x-large", "name": "Extra groot", "size": "2.5rem" },
+				{ "slug": "giant", "name": "Gigantisch", "size": "clamp(2.5rem, 5vw, 4.5rem)" }
+			]
+		},
+		"spacing": {
+			"units": [ "px", "%", "em", "rem", "vh", "vw" ],
+			"spacingScale": {
+				"steps": 0
+			},
+			"spacingSizes": [
+				{ "slug": "20", "name": "XS", "size": "0.5rem" },
+				{ "slug": "30", "name": "S", "size": "1rem" },
+				{ "slug": "40", "name": "M", "size": "1.75rem" },
+				{ "slug": "50", "name": "L", "size": "3rem" },
+				{ "slug": "60", "name": "XL", "size": "5rem" },
+				{ "slug": "70", "name": "XXL", "size": "8rem" }
+			]
+		}
+	},
+	"styles": {
+		"spacing": {
+			"padding": {
+				"left": "clamp(1.25rem, 4vw, 2.5rem)",
+				"right": "clamp(1.25rem, 4vw, 2.5rem)"
+			}
+		},
+		"color": {
+			"background": "var(--wp--preset--color--ink)",
+			"text": "var(--wp--preset--color--white)"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--inter)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"lineHeight": "1.6"
+		},
+		"elements": {
+			"link": {
+				"color": { "text": "var(--wp--preset--color--lilac)" },
+				":hover": {
+					"color": { "text": "var(--wp--preset--color--white)" }
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontWeight": "700",
+					"lineHeight": "1.15"
+				},
+				"color": { "text": "var(--wp--preset--color--white)" }
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--accent)",
+					"text": "var(--wp--preset--color--white)"
+				},
+				"typography": { "fontWeight": "700", "lineHeight": "1" },
+				"border": { "radius": "999px" },
+				"spacing": {
+					"padding": {
+						"top": "0.85rem",
+						"bottom": "0.85rem",
+						"left": "2rem",
+						"right": "2rem"
+					}
+				}
+			}
+		},
+		"blocks": {
+			"core/separator": {
+				"color": { "text": "var(--wp--preset--color--anthracite)" }
+			}
+		}
+	},
+	"templateParts": [
+		{ "name": "header", "title": "Header", "area": "header" },
+		{ "name": "footer", "title": "Footer", "area": "footer" }
+	],
+	"customTemplates": []
+}

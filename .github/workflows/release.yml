@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read plugin version
+        id: plugin
+        run: |
+          version=$(grep -m1 '^ \* Version:' eleven20one-core/eleven20one-core.php | sed -E 's/.*Version:\s*//')
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Read theme version
+        id: theme
+        run: |
+          version=$(grep -m1 '^Version:' eleven20one/style.css | sed -E 's/Version:\s*//')
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Zip plugin
+        run: zip -r "eleven20one-core-${{ steps.plugin.outputs.version }}.zip" eleven20one-core -x "*.DS_Store"
+
+      - name: Zip theme
+        run: zip -r "eleven20one-theme-${{ steps.theme.outputs.version }}.zip" eleven20one -x "*.DS_Store"
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            eleven20one-core-${{ steps.plugin.outputs.version }}.zip
+            eleven20one-theme-${{ steps.theme.outputs.version }}.zip
+          generate_release_notes: true

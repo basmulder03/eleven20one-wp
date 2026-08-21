@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "eleven20one/countdown",
+	"title": "Eleven20one dubbele countdown",
+	"category": "widgets",
+	"icon": "clock",
+	"description": "Toont een dubbele countdown (ticketverkoop + show) voor het eerstvolgende optreden, met een knop naar de ticketshop.",
+	"textdomain": "eleven20one-core",
+	"supports": {
+		"align": [ "wide", "full" ],
+		"html": false
+	}
+}

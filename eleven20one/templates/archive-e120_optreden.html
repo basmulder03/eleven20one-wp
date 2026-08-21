@@ -1,0 +1,27 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","align":"full","style":{"spacing":{"padding":{"top":"60","bottom":"60"}}},"layout":{"type":"constrained","contentSize":"760px"}} -->
+<main class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+	<!-- wp:heading {"level":1,"fontSize":"x-large"} -->
+	<h1 class="wp-block-heading has-x-large-font-size">Optredens</h1>
+	<!-- /wp:heading -->
+
+	<!-- wp:paragraph -->
+	<p>Alle aankomende (en eerdere) shows op een rij. <a href="/kalender.ics">Abonneer op onze agenda</a> om automatisch nieuwe optredens in je eigen agenda-app te krijgen.</p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:shortcode -->
+	[eleven20one_countdown]
+	<!-- /wp:shortcode -->
+
+	<!-- wp:spacer {"height":"var:preset|spacing|50"} -->
+	<div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
+
+	<!-- wp:shortcode -->
+	[eleven20one_optredens_list]
+	<!-- /wp:shortcode -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
