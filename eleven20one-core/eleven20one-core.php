@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Eleven20one Core
  * Description:       Custom post types, dual show/ticket countdown, and an auto-syncing calendar feed for the Eleven20one website.
- * Version:           1.0.9
+ * Version:           1.1.0
  * Requires at least: 6.5
  * Requires PHP:      8.0
  * Author:            Eleven20one
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'E120_CORE_VERSION', '1.0.9' );
+define( 'E120_CORE_VERSION', '1.1.0' );
 define( 'E120_CORE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'E120_CORE_URL', plugin_dir_url( __FILE__ ) );
 

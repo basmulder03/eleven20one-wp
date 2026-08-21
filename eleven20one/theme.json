@@ -80,6 +80,11 @@
 				{ "slug": "60", "name": "XL", "size": "5rem" },
 				{ "slug": "70", "name": "XXL", "size": "8rem" }
 			]
+		},
+		"blocks": {
+			"core/image": {
+				"lightbox": { "enabled": true }
+			}
 		}
 	},
 	"styles": {

@@ -44,10 +44,10 @@ class Eleven20one_FAQ {
 		?>
 		<div class="e120-faq">
 			<?php foreach ( self::ITEMS as $item ) : ?>
-				<div class="e120-faq__item">
-					<h3 class="e120-faq__question"><?php echo esc_html( $item['q'] ); ?></h3>
+				<details class="e120-faq__item">
+					<summary class="e120-faq__question"><?php echo esc_html( $item['q'] ); ?></summary>
 					<p class="e120-faq__answer"><?php echo esc_html( $item['a'] ); ?></p>
-				</div>
+				</details>
 			<?php endforeach; ?>
 		</div>
 		<?php
