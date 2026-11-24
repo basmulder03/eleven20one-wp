@@ -269,6 +269,9 @@ a {
 .wpcf7-form input[type="tel"],
 .wpcf7-form input[type="date"],
 .wpcf7-form textarea {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
 	font-family: inherit;
 	font-size: 1rem;
 	font-weight: 400;
